@@ -151,6 +151,9 @@ C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\bin\Debug\netcoreapp3.1\ru\Microso
 C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\obj\Debug\netcoreapp3.1\iOrgaoAPI.csproj.CoreCompileInputs.cache
 C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\obj\Debug\netcoreapp3.1\iOrgaoAPI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\obj\Debug\netcoreapp3.1\EFCorePluralizer.cs

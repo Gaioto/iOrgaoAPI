@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using iOrgaoAPI.Models;
+using Microsoft.Extensions.WebEncoders.Testing;
 
 namespace iOrgaoAPI.Controllers
 {
@@ -27,8 +28,27 @@ namespace iOrgaoAPI.Controllers
             return await _context.TbDonators.ToListAsync();
         }
 
+        // GET: api/TbDonators/GetTbDonatorDetails/5
+        [HttpGet("GetTbDonatorDetails/{id}")]
+        public async Task<ActionResult<TbDonator>> GetTbDonatorDetails(int id)
+        {
+            var tbDonator = _context.TbDonators
+                                             .Include(don => don.IdAdressNavigation)
+                                             .Include(don => don.TbDonations)
+                                             .Include(don => don.IdOrganNavigation)
+                                             .Where(don => don.IdDonator == id)
+                                             .FirstOrDefault();
+
+            if (tbDonator == null)
+            {
+                return NotFound();
+            }
+
+            return tbDonator;
+        }
+
         // GET: api/TbDonators/5
-        [HttpGet("{id}")]
+        [HttpGet("GetTbDonator/{id}")]
         public async Task<ActionResult<TbDonator>> GetTbDonator(int id)
         {
             var tbDonator = await _context.TbDonators.FindAsync(id);
@@ -42,8 +62,6 @@ namespace iOrgaoAPI.Controllers
         }
 
         // PUT: api/TbDonators/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTbDonator(int id, TbDonator tbDonator)
         {

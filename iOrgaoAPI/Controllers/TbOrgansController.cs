@@ -27,8 +27,26 @@ namespace iOrgaoAPI.Controllers
             return await _context.TbOrgans.ToListAsync();
         }
 
-        // GET: api/TbOrgans/5
-        [HttpGet("{id}")]
+        // GET: api/TbOrgans/GetTbOrganDetails/5
+        [HttpGet("GetTbOrganDetails/{id}")]
+        public async Task<ActionResult<TbOrgan>> GetTbOrganDetails(int id)
+        {
+            var tbOrgan = _context.TbOrgans
+                                         .Include(org => org.TbDonators)
+                                         .Include(org => org.TbPatients)
+                                         .Where(org => org.IdOrgan == id)
+                                         .FirstOrDefault();
+
+            if (tbOrgan == null)
+            {
+                return NotFound();
+            }
+
+            return tbOrgan;
+        }
+
+        // GET: api/TbOrgans/GetTbOrgan/5
+        [HttpGet("GetTbOrgan/{id}")]
         public async Task<ActionResult<TbOrgan>> GetTbOrgan(int id)
         {
             var tbOrgan = await _context.TbOrgans.FindAsync(id);
@@ -42,8 +60,6 @@ namespace iOrgaoAPI.Controllers
         }
 
         // PUT: api/TbOrgans/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTbOrgan(int id, TbOrgan tbOrgan)
         {
@@ -74,8 +90,6 @@ namespace iOrgaoAPI.Controllers
         }
 
         // POST: api/TbOrgans
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
         public async Task<ActionResult<TbOrgan>> PostTbOrgan(TbOrgan tbOrgan)
         {

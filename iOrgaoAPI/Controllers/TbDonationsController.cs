@@ -27,8 +27,27 @@ namespace iOrgaoAPI.Controllers
             return await _context.TbDonations.ToListAsync();
         }
 
-        // GET: api/TbDonations/5
-        [HttpGet("{id}")]
+        // GET: api/TbDonations/GetTbDonationDetails/5
+        [HttpGet("GetTbDonationDetails/{id}")]
+        public async Task<ActionResult<TbDonation>> GetTbDonationDetails(int id)
+        {
+            var tbDonation = _context.TbDonations
+                                               .Include(don => don.IdDoctorNavigation)
+                                               .Include(don => don.IdDonatorNavigation)
+                                               .Include(don => don.IdPatientNavigation)                                     
+                                               .Where(don => don.IdDonation == id)
+                                               .FirstOrDefault(); 
+
+            if (tbDonation == null)
+            {
+                return NotFound();
+            }
+
+            return tbDonation;
+        }
+
+        // GET: api/TbDonations/GetTbDonation/5
+        [HttpGet("GetTbDonation/{id}")]
         public async Task<ActionResult<TbDonation>> GetTbDonation(int id)
         {
             var tbDonation = await _context.TbDonations.FindAsync(id);
