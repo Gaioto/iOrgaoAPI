@@ -34,7 +34,9 @@ namespace iOrgaoAPI.Controllers
             var tbDonation = _context.TbDonations
                                                .Include(don => don.IdDoctorNavigation)
                                                .Include(don => don.IdDonatorNavigation)
-                                               .Include(don => don.IdPatientNavigation)                                     
+                                                      .ThenInclude(dona => dona.IdOrganNavigation)
+                                               .Include(don => don.IdPatientNavigation)
+                                                      .ThenInclude(pat => pat.IdOrganNavigation)
                                                .Where(don => don.IdDonation == id)
                                                .FirstOrDefault(); 
 
