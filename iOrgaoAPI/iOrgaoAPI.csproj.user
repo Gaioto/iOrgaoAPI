@@ -11,6 +11,7 @@
     <WebStackScaffolding_DbContextTypeFullName>iOrgaoAPI.Models.iorgaoSQL_BDContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <ActiveDebugProfile>iOrgaoAPI</ActiveDebugProfile>
+    <NameOfLastUsedPublishProfile>iOrgaoAPI - Web Deploy</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>

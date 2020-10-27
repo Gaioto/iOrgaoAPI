@@ -1,0 +1,6 @@
+C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\obj\Release\netcoreapp3.1\iOrgaoAPI.csprojAssemblyReference.cache
+C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\obj\Release\netcoreapp3.1\iOrgaoAPI.AssemblyInfoInputs.cache
+C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\obj\Release\netcoreapp3.1\iOrgaoAPI.AssemblyInfo.cs
+C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\obj\Release\netcoreapp3.1\iOrgaoAPI.csproj.CoreCompileInputs.cache
+C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\obj\Release\netcoreapp3.1\iOrgaoAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\obj\Release\netcoreapp3.1\EFCorePluralizer.cs

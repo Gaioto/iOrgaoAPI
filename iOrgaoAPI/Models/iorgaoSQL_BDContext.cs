@@ -20,14 +20,13 @@ namespace iOrgaoAPI.Models
         public virtual DbSet<TbDonation> TbDonations { get; set; }
         public virtual DbSet<TbDonator> TbDonators { get; set; }
         public virtual DbSet<TbOrgan> TbOrgans { get; set; }
-        public virtual DbSet<TbOrganList> TbOrganLists { get; set; }
         public virtual DbSet<TbPatient> TbPatients { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Data Source=iorgaoserver.database.windows.net;Initial Catalog=iorgaoSQL_BD;User ID=orgao;Password=GeneralDev123;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             }
         }
@@ -309,21 +308,6 @@ namespace iOrgaoAPI.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.WeightOrgan).HasColumnName("weight_organ");
-            });
-
-            modelBuilder.Entity<TbOrganList>(entity =>
-            {
-                entity.HasKey(e => e.IdOrg)
-                    .HasName("PK__TB_ORGAN__6E0C5F09A87B2068");
-
-                entity.ToTable("TB_ORGAN_LIST");
-
-                entity.Property(e => e.IdOrg).HasColumnName("id_org");
-
-                entity.Property(e => e.NameOrg)
-                    .HasColumnName("name_org")
-                    .HasMaxLength(255)
-                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<TbPatient>(entity =>
