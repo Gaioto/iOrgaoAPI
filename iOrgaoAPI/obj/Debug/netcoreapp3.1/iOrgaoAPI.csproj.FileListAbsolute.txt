@@ -154,6 +154,15 @@ C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\bin\Debug\netcoreapp3.1\zh-Hant\Mi
 C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.iOrgaoAPI - Web Deploy.json
+C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.json
+C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\iOrgaoAPI - Web Deploy\mssql1.arm.json
+C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\iOrgaoAPI - Web Deploy\profile.arm.json
+C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\obj\Debug\netcoreapp3.1\iOrgaoAPI.csproj.CoreCompileInputs.cache
+C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\obj\Debug\netcoreapp3.1\iOrgaoAPI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\obj\Debug\netcoreapp3.1\iOrgaoAPI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Gui\source\repos\iOrgaoAPI\iOrgaoAPI\obj\Debug\netcoreapp3.1\EFCorePluralizer.cs

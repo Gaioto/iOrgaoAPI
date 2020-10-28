@@ -34,6 +34,11 @@ namespace iOrgaoAPI
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                 .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 
+            services.AddSwaggerGen(gen =>
+            {
+                gen.SwaggerDoc("v1.0", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "iOrgao API", Version = "v1.0" });
+            });
+
             services.AddDbContext<iorgaoSQL_BDContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("iOrgaoDB")));
         }
@@ -49,6 +54,13 @@ namespace iOrgaoAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(ui =>
+            {
+                ui.SwaggerEndpoint("/swagger/v1.0/swagger.json", "iOrgao API Endpoint");
+            });
 
             app.UseAuthorization();
 
