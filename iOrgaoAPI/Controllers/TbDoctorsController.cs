@@ -27,8 +27,26 @@ namespace iOrgaoAPI.Controllers
             return await _context.TbDoctors.ToListAsync();
         }
 
-        // GET: api/TbDoctors/GetTbDoctorDetails/5
-        [HttpGet("GetTbDoctorDetails/{id}")]
+        // GET: api/TbDonators/GetTbDoctorLogin
+        [HttpGet("GetTbDoctorLogin/{EmailDonator}/{PasswordDonator}")]
+        public async Task<ActionResult<TbDoctor>> GetTbDoctorLogin(String email, String password)
+        {
+            TbDoctor doctor = _context.TbDoctors.Where(doc => doc.EmailDoctor == email).FirstOrDefault();
+
+            if (doctor.EmailDoctor == email && doctor.PasswordDoctor == password)
+            {
+
+                return doctor;
+
+            }
+            else
+            {
+                return NotFound();
+            }
+
+        }
+            // GET: api/TbDoctors/GetTbDoctorDetails/5
+            [HttpGet("GetTbDoctorDetails/{id}")]
         public async Task<ActionResult<TbDoctor>> GetTbDoctorDetails(int id)
         {
             var tbDoctor = _context.TbDoctors

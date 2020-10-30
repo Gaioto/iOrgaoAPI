@@ -27,6 +27,24 @@ namespace iOrgaoAPI.Controllers
             return await _context.TbPatients.ToListAsync();
         }
 
+        [HttpGet("GetTbPatientLogin/{EmailDonator}/{PasswordDonator}")]
+        public async Task<ActionResult<TbPatient>> GetTbPatientLogin(String email, String password)
+        {
+            TbPatient patient = _context.TbPatients.Where(pat => pat.EmailPatient == email).FirstOrDefault();
+
+            if (patient.EmailPatient == email && patient.PasswordPatient == password)
+            {
+
+                return patient;
+
+            }
+            else
+            {
+                return NotFound();
+            }
+
+        }
+
         // GET: api/TbPatients/GetTbPatientDetails/5
         [HttpGet("GetTbPatientDetails/{id}")]
         public async Task<ActionResult<TbPatient>> GetTbPatientDetails(int id)

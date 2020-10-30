@@ -28,6 +28,24 @@ namespace iOrgaoAPI.Controllers
             return await _context.TbDonators.ToListAsync();
         }
 
+        // GET: api/TbDonators/GetTbDonatorLogin
+        [HttpGet("GetTbDonatorLogin/{EmailDonator}/{PasswordDonator}")]
+        public async Task<ActionResult<TbDonator>> GetTbDonatorLogin(String email, String password)
+        {
+            TbDonator donator = _context.TbDonators.Where(don => don.EmailDonator == email).FirstOrDefault();
+
+            if(donator.EmailDonator == email && donator.PasswordDonator == password)
+            {
+
+                return donator;
+
+            } else
+            {
+                return NotFound();
+            } 
+
+        }
+
         // GET: api/TbDonators/GetTbDonatorDetails/5
         [HttpGet("GetTbDonatorDetails/{id}")]
         public async Task<ActionResult<TbDonator>> GetTbDonatorDetails(int id)
