@@ -27,6 +27,46 @@ namespace iOrgaoAPI.Controllers
             return await _context.TbAdresses.ToListAsync();
         }
 
+        // POST: api/PostTbAdressToPatient/TbAdresses/
+        [HttpPost("PostTbAdressToPatient/{id}")]
+        public async Task<ActionResult<TbAdress>> PostTbAdressToPatient(TbAdress tbAdress, int id)
+        {
+
+            var tbPatient = await _context.TbPatients.FindAsync(id);
+
+            tbPatient.IdAdress = tbAdress.IdAdress;
+
+            DateTime actual = DateTime.Now;
+
+            tbAdress.DateCreatedAdress = actual;
+
+            _context.TbAdresses.Add(tbAdress);
+            _context.TbPatients.Update(tbPatient);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetTbAdress", new { id = tbAdress.IdAdress }, tbAdress);
+        }
+
+        // POST: api/PostTbAdressToDonator/TbAdresses/
+        [HttpPost("PostTbAdressToDonator/{id}")]
+        public async Task<ActionResult<TbAdress>> PostTbAdressToDonator(TbAdress tbAdress, int id)
+        {
+
+            var tbDonator = await _context.TbDonators.FindAsync(id);
+
+            tbDonator.IdAdress = tbAdress.IdAdress;
+
+            DateTime actual = DateTime.Now;
+
+            tbAdress.DateCreatedAdress = actual;
+
+            _context.TbAdresses.Add(tbAdress);
+            _context.TbDonators.Update(tbDonator);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetTbAdress", new { id = tbAdress.IdAdress }, tbAdress);
+        }
+
         // GET: api/TbAdresses/5
         [HttpGet("{id}")]
         public async Task<ActionResult<TbAdress>> GetTbAdress(int id)

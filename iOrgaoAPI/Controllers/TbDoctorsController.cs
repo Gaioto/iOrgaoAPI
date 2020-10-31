@@ -28,7 +28,7 @@ namespace iOrgaoAPI.Controllers
         }
 
         // GET: api/TbDonators/GetTbDoctorLogin
-        [HttpGet("GetTbDoctorLogin/{EmailDonator}/{PasswordDonator}")]
+        [HttpGet("GetTbDoctorLogin/{email}/{password}")]
         public async Task<ActionResult<TbDoctor>> GetTbDoctorLogin(String email, String password)
         {
             TbDoctor doctor = _context.TbDoctors.Where(doc => doc.EmailDoctor == email).FirstOrDefault();
