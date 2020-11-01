@@ -79,6 +79,43 @@ namespace iOrgaoAPI.Controllers
             return tbDonator;
         }
 
+        [HttpPut("PutTbDonatorAdress/{id}/{idAdress}")]
+        public async Task<IActionResult> PutTbDonatorAdress(int id, int idAdress)
+        {
+            var tbDonator = await _context.TbDonators.FindAsync(id);
+
+            var tbAdress = await _context.TbAdresses.FindAsync(idAdress);
+
+            DateTime actual = DateTime.Now;
+
+            tbDonator.DateUpdatedDonator = actual;  
+
+            if (id != tbDonator.IdDonator)
+            {
+                return BadRequest();
+            }
+
+            tbDonator.IdAdress = tbAdress.IdAdress;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!TbDonatorExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
         // PUT: api/TbDonators/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTbDonator(int id, TbDonator tbDonator)

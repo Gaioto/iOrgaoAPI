@@ -27,43 +27,18 @@ namespace iOrgaoAPI.Controllers
             return await _context.TbAdresses.ToListAsync();
         }
 
-        // POST: api/PostTbAdressToPatient/TbAdresses/
-        [HttpPost("PostTbAdressToPatient/{id}")]
-        public async Task<ActionResult<TbAdress>> PostTbAdressToPatient(TbAdress tbAdress, int id)
+        // GET: api/TbAdressesByNumber/5
+        [HttpGet("TbAdressesByNumber/{number}")]
+        public async Task<ActionResult<TbAdress>> GetTbAdressByNumber(int number)
         {
+            var tbAdress = _context.TbAdresses.Where(adr => adr.NumberAdress == number).FirstOrDefault();
 
-            var tbPatient = await _context.TbPatients.FindAsync(id);
+            if (tbAdress == null)
+            {
+                return NotFound();
+            }
 
-            DateTime actual = DateTime.Now;
-
-            tbAdress.DateCreatedAdress = actual;
-
-            _context.TbAdresses.Add(tbAdress);
-            tbPatient.IdAdress = tbAdress.IdAdress;
-            _context.TbPatients.Update(tbPatient);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetTbAdress", new { id = tbAdress.IdAdress }, tbAdress);
-        }
-
-        // POST: api/PostTbAdressToDonator/TbAdresses/
-        [HttpPost("PostTbAdressToDonator/{id}")]
-        public async Task<ActionResult<TbAdress>> PostTbAdressToDonator(TbAdress tbAdress, int id)
-        {
-
-            var tbDonator = await _context.TbDonators.FindAsync(id);
-
-            tbDonator.IdAdress = tbAdress.IdAdress;
-
-            DateTime actual = DateTime.Now;
-
-            tbAdress.DateCreatedAdress = actual;
-
-            _context.TbAdresses.Add(tbAdress);
-            _context.TbDonators.Update(tbDonator);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetTbAdress", new { id = tbAdress.IdAdress }, tbAdress);
+            return tbAdress;
         }
 
         // GET: api/TbAdresses/5
