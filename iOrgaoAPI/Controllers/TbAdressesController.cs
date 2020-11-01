@@ -34,13 +34,12 @@ namespace iOrgaoAPI.Controllers
 
             var tbPatient = await _context.TbPatients.FindAsync(id);
 
-            tbPatient.IdAdress = tbAdress.IdAdress;
-
             DateTime actual = DateTime.Now;
 
             tbAdress.DateCreatedAdress = actual;
 
             _context.TbAdresses.Add(tbAdress);
+            tbPatient.IdAdress = tbAdress.IdAdress;
             _context.TbPatients.Update(tbPatient);
             await _context.SaveChangesAsync();
 
